@@ -24,13 +24,25 @@ Ce projet consiste en la création du jeu des **Cœurs** en utilisant **Flutter*
 
 ## Etape 1 : Lancer le serveur
 
-1. Aller dans le dossier ./serveur/ia_server/src
-2. Lancer la commande py coeurs_serveur.py
+1. Aller dans le dossier ./serveur/ia_server/src :
+   ```bash
+   cd serveur/ia_server/src
+2. Lancer le serveur :
+    ```bash
+    py coeurs_serveur.py
    
 ## Etape 2 : Lancer le client
 
-1. Aller dans le dossier ./client
-2. Lancer la commande flutter run
+1. Aller dans le dossier ./client :
+   ```bash
+   cd client
+2. Lancer le client :
+   ```bash
+   flutter run
+3. Choisir le navigateur souhaité :
+   1- Windows
+   2- Chrome
+   3- Edge
 
 ## Etape 3 : Jouez !
 
