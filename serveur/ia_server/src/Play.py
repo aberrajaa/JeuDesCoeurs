@@ -36,6 +36,37 @@ def select_best_card_with_NN(numero_pli, cards_in_hand, playable_cards, cartes_d
     return best_card
 
 
+def select_best_card_with_NN_level_easy(numero_pli, cards_in_hand, playable_cards, cartes_du_pli, couleur, ordre_joueur, flag_hearts):
+    static_pack = Paquet()
+    neural_network= load_model(113, 32, "good_nns/bad_boy_3g.pth")
+    # Encode the input data
+    encoded_input_data = encode_input(numero_pli, cards_in_hand, playable_cards, cartes_du_pli, couleur, ordre_joueur,flag_hearts)
+
+    has_color = False
+
+    with torch.no_grad():
+        output = neural_network(encoded_input_data.clone().detach().requires_grad_(True))
+    for card in cards_in_hand:
+        if card.get_couleur() == couleur:
+            has_color = True
+    if has_color:
+        playable_mask = [1 if card in cards_in_hand and card.get_couleur() == couleur else negative_infinity for card
+                         in static_pack.cartes]
+    else:
+        playable_mask = [1 if card in cards_in_hand else negative_infinity for card in static_pack.cartes]
+
+    masked_output = output.clone()
+    for i, value in enumerate(playable_mask):
+        if value == negative_infinity:
+            masked_output[i] = negative_infinity
+
+    best_card_index = torch.argmax(masked_output).item()
+    je = JoueurEncoder()
+    best_card = je.decode_card_index(best_card_index)
+
+    return best_card
+
+
 def encode_input(numero_pli, cards_in_hand, playable_cards, cartes_du_pli, couleur, ordre_joueur,
                  flag_hearts):
     from JoueurEncoder import JoueurEncoder

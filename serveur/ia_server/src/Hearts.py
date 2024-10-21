@@ -43,6 +43,8 @@ class Card:
         }
         return rank_dict[self.rank] + suit_dict[self.suit]
     
+
+    
     rank_to_rang = {
     'seven' : Rank.SEVEN,
     'eight': Rank.EIGHT,
@@ -60,6 +62,14 @@ class Card:
     'clubs': Suit.CLUBS,
     'spades': Suit.SPADES
     }
+
+    couleur_to_suit = {v: k for k, v in suit_to_couleur.items()}
+    rang_to_rank = {v: k for k, v in rank_to_rang.items()}
+
+    def parsing_of_card_to_return_mcts(card):
+        suit_string = Card.couleur_to_suit[card.suit]
+        rank_string = Card.rang_to_rank[card.rank]
+        return suit_string, rank_string
     
     def get_suit(self):
         return self.suit
@@ -516,14 +526,14 @@ class MCTSPlayer(Player):
 
         return best_child_num
 
-    def do_action(self, state):
+    def do_action(self, state, duree):
         self.simulation_hand.clear()
         self.simulation_hand.extend(self.hand)
 
         if len(self.hand) == 1:
             return self.hand.pop()
 
-        return self.hand.pop(self.run_mcts(state, 10))
+        return self.hand.pop(self.run_mcts(state, duree))
 
 class State:
     def __init__(self, deck, trick, scores, index):

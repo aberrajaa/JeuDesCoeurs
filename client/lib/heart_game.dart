@@ -137,6 +137,8 @@ class HeartsGame {
       players[currentPlayer].listOfTrick[trickMap.length] = currentTrick;
       trickMap[trickMap.length] = currentTrick;
       update_flag();
+      score();
+      print(scores);
       print(flag);
       await Future.delayed(const Duration(seconds: 1));
       currentTrick = Trick();
@@ -148,8 +150,18 @@ class HeartsGame {
     }
   }
 
+  List<Card> getAllTrickCards(Map<int, Trick> trick_map) {
+    List<Card> allCards = [];
+    trick_map.values.forEach((trick) {
+      allCards.addAll(trick.trick);
+    });
+    allCards.addAll(currentTrick.trick);
+    return allCards;
+  }
+
   Future<Card> cardToPlay(Player player) async {
     List<Card> listOfPossibleCards = player.getPossibleCards(currentTrick);
+    List<Card> list_all_cards = getAllTrickCards(trickMap);
     List<Card> playable_cards;
     if (player.number == 1) {
       playable_cards = players[0].hand + players[2].hand + players[3].hand;
@@ -162,6 +174,9 @@ class HeartsGame {
     final response = await http.post(
       Uri.parse('http://127.0.0.1:5000/play_move'),
       body: json.encode({
+        'scores': scores,
+        'all_cards': list_all_cards.map((card) => toJson(card)).toList(),
+        'number_of_player': player.number,
         'taille': listOfPossibleCards.length,
         'trick_number': trickMap.length,
         'cards_in_hand': player.hand.map((card) => toJson(card)).toList(),

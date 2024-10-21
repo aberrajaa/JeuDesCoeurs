@@ -12,11 +12,11 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   String ia1Difficulty = 'Easy';
-  String ia1Type = 'MCTS';
+  String ia1Type = 'Neural Network';
   String ia2Difficulty = 'Easy';
-  String ia2Type = 'MCTS';
+  String ia2Type = 'Neural Network';
   String ia3Difficulty = 'Easy';
-  String ia3Type = 'MCTS';
+  String ia3Type = 'Neural Network';
   TextEditingController numberOfRoundsController = TextEditingController();
 
   void sendInitializationRequest() async {
@@ -47,9 +47,9 @@ class _SettingsPageState extends State<SettingsPage> {
 
     final Map<String, dynamic> requestBody = {
       "ia_players": [
-        {"id": 1, "type": ia1Type},
-        {"id": 2, "type": ia2Type},
-        {"id": 3, "type": ia3Type},
+        {"id": 1, "type": ia1Type, "difficulte": ia1Difficulty},
+        {"id": 2, "type": ia2Type, "difficulte": ia2Difficulty},
+        {"id": 3, "type": ia3Type, "difficulte": ia3Difficulty},
       ]
     };
 
@@ -194,7 +194,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 }
               });
             },
-            items: <String>['Easy', 'Medium', 'Hard']
+            items: <String>['Easy', 'Hard']
                 .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
@@ -220,7 +220,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 }
               });
             },
-            items: <String>['MCTS', 'Neural Network']
+            items: <String>['Neural Network', 'MCTS']
                 .map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
