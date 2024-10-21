@@ -6,15 +6,14 @@ Ce projet consiste en la création du jeu des **Cœurs** en utilisant **Flutter*
 
 ## Fonctionnalités
 
-- **Interface utilisateur fluide** : Développée en Flutter, offrant une expérience utilisateur agréable sur mobile et web.
-- **Intelligence Artificielle** : Utilise l'algorithme MCTS pour prendre des décisions stratégiques pendant le jeu.
+- **Interface utilisateur fluide** : Développée en Flutter, offrant une expérience utilisateur sur mobile et web.
+- **Intelligence Artificielle** : Utilise l'algorithme MCTS ou un réseau de neuronnes pour prendre des décisions stratégiques pendant le jeu.
 - **Communication Client-Serveur** : Les interactions entre le client Flutter et le serveur Python permettent un jeu en temps réel.
 
 ## Prérequis
 
 - **Flutter** : Assurez-vous d'avoir Flutter installé sur votre machine. Vous pouvez suivre les instructions [ici](https://flutter.dev/docs/get-started/install).
 - **Python** : Installez Python 3.6 ou supérieur pour exécuter le serveur.
-- **Bibliothèques Python** : Assurez-vous d'installer les bibliothèques nécessaires (à définir dans `requirements.txt` ou manuellement).
 
 ## Installation
 
