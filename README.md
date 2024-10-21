@@ -40,9 +40,9 @@ Ce projet consiste en la création du jeu des **Cœurs** en utilisant **Flutter*
    ```bash
    flutter run
 3. Choisir le navigateur souhaité :
-   1- Windows
-   2- Chrome
-   3- Edge
+   [1]- Windows, 
+   [2]- Chrome,
+   [3]- Edge
 
 ## Etape 3 : Jouez !
 
