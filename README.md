@@ -1,21 +1,41 @@
-# Morpion Multijoueur avec IA
+# Jeu des Coeurs avec Intelligence Artificielle
 
-Ce projet est une implémentation du jeu du morpion (Tic-Tac-Toe) avec une intelligence artificielle (IA). Le jeu comprend un client Flutter pour jouer contre l'IA et un serveur Python qui gère la logique de l'IA.
+## Description
+
+Ce projet consiste en la création du jeu des **Cœurs** en utilisant **Flutter** pour le client, avec une intelligence artificielle (IA) basée sur **Monte Carlo Tree Search (MCTS)** et un réseau de neurones hébergé sur un serveur Python. L'application est adaptée pour fonctionner aussi bien sur **mobile** que sur **web**, offrant une expérience de jeu fluide et accessible sur plusieurs plateformes.
 
 ## Fonctionnalités
 
-- Jouez au morpion contre une IA intelligente.
-- Interface utilisateur conviviale avec une grille de jeu interactive.
-- Serveur Python pour gérer les mouvements de l'IA.
-- Possibilité de jouer en solo contre l'IA.
+- **Interface utilisateur fluide** : Développée en Flutter, offrant une expérience utilisateur agréable sur mobile et web.
+- **Intelligence Artificielle** : Utilise l'algorithme MCTS pour prendre des décisions stratégiques pendant le jeu.
+- **Communication Client-Serveur** : Les interactions entre le client Flutter et le serveur Python permettent un jeu en temps réel.
 
-## Configuration Requise
+## Prérequis
 
-- [Flutter](https://flutter.dev/) pour exécuter le client Flutter.
-- Python 3.x pour exécuter le serveur Python.
-- Installer la bibliothèque Flask et CORS pour python
+- **Flutter** : Assurez-vous d'avoir Flutter installé sur votre machine. Vous pouvez suivre les instructions [ici](https://flutter.dev/docs/get-started/install).
+- **Python** : Installez Python 3.6 ou supérieur pour exécuter le serveur.
+- **Bibliothèques Python** : Assurez-vous d'installer les bibliothèques nécessaires (à définir dans `requirements.txt` ou manuellement).
 
-## Utilisation
+## Installation
 
-1. Clonez ce dépôt sur votre machine locale :
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/votre_nom_utilisateur/coeurs.git
 
+## Etape 1 : Lancer le serveur
+
+1. Aller dans le dossier ./serveur/ia_server/src
+2. Lancer la commande py coeurs_serveur.py
+   
+## Etape 2 : Lancer le client
+
+1. Aller dans le dossier ./client
+2. Lancer la commande flutter run
+
+## Etape 3 : Jouez !
+
+Vous pouvez ainsi jouer au jeu contre deux types d'intelligences artificielles (MCTS et réseaux de neuronnes). Les règles du jeu sont situées en haut à droite de la page d'accueil !
+
+
+
+   
