@@ -1,4 +1,4 @@
-# Jeu des Coeurs avec Intelligence Artificielle
+# Jeu des Coeurs avec Intelligences Artificielles (MCTS, Réseau de neuronnes)
 
 ## Description
 
